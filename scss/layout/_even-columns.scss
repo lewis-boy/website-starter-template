@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+//grid is better than flex when you want equal columns in height and width
+//flex you would have to do extra work to get them to be equal
+.even-columns{
+    display: grid;
+    //this gap is only for vertical spacing
+    gap: var(--grid-gap, $grid-gap);
+
+    @include mq(medium) {
+        //gap switches to horizontal spacing
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+}

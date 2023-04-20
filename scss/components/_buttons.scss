@@ -1,0 +1,39 @@
+@use '../abstracts/' as *;
+
+.button {
+    //base button styles start
+    display: inline-flex;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1;
+    border: 0;
+    font-weight: $fw-700;
+    //base button styles end
+
+    //based off parent components font size
+    padding: 1.125em 2em;
+    transition: 275ms ease;
+
+    &[data-type="accent"] {
+        background: clr(primary, 400);
+        color: clr(neutral, 900);
+    }
+
+    &[data-type="outline"] {
+        --outline-size: 5px;
+    
+        background-color: transparent;
+        //we use an outline rather than a border because outlines are visual elements,
+        //so they don't push or take up space
+        outline: var(--outline-size) solid clr(neutral, 100);
+        //outline offset sucks the outline inside by however many px specified 
+        outline-offset: calc(var(--outline-size) * -1);
+        color: clr(neutral, 100);
+    }
+
+    &:is(:hover, :focus){
+        background-color: clr(neutral, 100);
+        color: clr(neutral, 900);
+    }
+}

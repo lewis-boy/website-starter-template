@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+.grid-auto-fit {
+    display: grid;
+    grid-gap: var(--grid-gap, $grid-gap);
+    //auto fit means the browser will try to do it itself with the minmax
+    //the min inside handles the rare cases when the viewport falls below 250px and overflow starts to occur
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}

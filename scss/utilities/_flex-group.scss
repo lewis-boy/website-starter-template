@@ -1,0 +1,17 @@
+@use '../abstracts/' as *;
+//we don't consider a flex-group part of the layout group
+.flex-group {
+    display: flex;
+    //we have flex-wrap because when we get to small sizes, they squish as they try to fit on
+    //the horizontal line. So if they run out of room, flex-wrap will make them wrap down.
+    flex-wrap: wrap;
+    //--flex-gap does not exist, but if we needed to overwrite the gap, it is now easy to do
+    column-gap: var(--flex-column-gap, $flex-group-gap);
+    row-gap: var(--flex-row-gap, calc($flex-group-gap / 2));
+    width: fit-content;
+
+    &.mx-auto{
+        justify-content: center;
+    }
+}
+
